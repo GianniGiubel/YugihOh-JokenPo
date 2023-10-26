@@ -82,10 +82,36 @@ async function setCardsField(dataId) {
     state.fieldCards.playerCard.src = cardData[dataId].img
     state.fieldCards.computerCard.src = cardData[computerCardId].img
 
-    let duelResults = await checkDuelResults( dataId, computerCardId)
+    let duelResults = await checkDuelResults(dataId,computerCardId)
 
     await upDateScore()
     await drawButton(duelResults)
+}
+
+async function upDateScore() {
+    state.score.scoreBox.innerHTML = `Win x ${state.score.playerScore} | Lose x ${state.score.computerScore}`
+}
+
+async function drawButton(result) {
+    state.actions.button.innerHTML = result
+}
+
+async function checkDuelResults(playerCardId,computerCardId) {
+    let duelResult = "DRAW"
+    let playerCard = cardData[playerCardId]    
+
+    if(playerCard.winOf.includes(computerCardId)) {
+        duelResult = "YOU WIN!"
+        await playSound("win")
+        state.score.playerScore++        
+    } 
+    if(playerCard.loseOf.includes(computerCardId)) {
+        duelResult = "YOU LOSE!"
+        await playSound("lose")
+        state.score.computerScore++        
+    }
+
+    return duelResult
 }
 
 async function createCardImage(IdCard, fieldSide) {
@@ -114,6 +140,20 @@ async function drawCards(cardsNumber, fieldSide) {
 
         document.getElementById(fieldSide).appendChild(cardImage)
     }
+}
+
+async function resetDuel() {
+    state.cardSprites.avatar.src = ""
+    state.actions.button.innerHTML = "Vs"
+    state.fieldCards.playerCard.style.display = "none"
+    state.fieldCards.computerCard.style.display = "none"
+
+    start()
+}
+
+async function playSound(status) {
+    const audio = new Audio(`./src/assets/audios/${status}.wav`)
+    audio.play()
 }
 
 function start() {
