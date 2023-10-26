@@ -1,4 +1,4 @@
-# Yu-Gi-Oh | Jo-ken-po Edition
+# Yu-Gi-Oh! Joken Po Project
 
 Jogo de jokenpo que criei para explicar conceitos de lógica de programação aplicados a jogos
 
