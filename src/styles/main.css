@@ -33,18 +33,71 @@
     height: 100vh;
 }
 
-.container__left {
+.container-left {
     width: 35%;
     min-width: 300px;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
-.container__left .score_box {
+.container-left .score-box {
     background-color: #ffffff;    
     padding: 2rem;
     text-align: center;
+}
+
+.card-details {
+    background-color: #ffffff;
+    padding: 1rem;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 6rem;
+    width: 100%;
+}
+
+.container-right {
+    width: 65%;
+}
+
+.card-box-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem;    
+}
+
+.card-box {
+    height: 15rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.card-versus-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    height: 300px;    
+}
+
+.versus-top,.versus-bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.card-infield {    
+    border-radius: 5px;
 }
 
 /* BORDA */
@@ -53,20 +106,18 @@
     border-radius: 5px;
 }
 
-.card_details {
-    background-color: #ffffff;
-    padding: 1rem;    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 6rem;
-}
-
 #card-name {
     font-size: 0.8rem;
 }
 
 #card-type {
     font-size: 1rem;
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.2);
 }
