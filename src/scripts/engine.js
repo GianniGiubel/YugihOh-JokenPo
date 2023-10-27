@@ -14,8 +14,7 @@ const state = {
         computerCard: document.querySelector('#computer-field-card'),
     } ,
     actions: {
-        button: document.querySelector('#next-duel') ,
-        audio: document.querySelector('#bgm')
+        button: document.querySelector('#next-duel') ,        
     } ,
 }
 
@@ -164,7 +163,8 @@ async function playSound(status) {
 function start() {
     drawCards(5, playerSide.player1)
     drawCards(5, playerSide.computer)
-    state.actions.audio.play()
+    const bgm = document.querySelector('#bgm')
+    bgm.play()
 }
 
 start()
