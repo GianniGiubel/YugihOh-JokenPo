@@ -14,7 +14,8 @@ const state = {
         computerCard: document.querySelector('#computer-field-card'),
     } ,
     actions: {
-        button: document.querySelector('#next-duel') ,        
+        button: document.querySelector('#next-duel') , 
+        bgm: new Audio('./src/assets/audios/egyptian_duel.mp3')       
     } ,
 }
 
@@ -163,8 +164,8 @@ async function playSound(status) {
 function start() {
     drawCards(5, playerSide.player1)
     drawCards(5, playerSide.computer)
-    const bgm = document.querySelector('#bgm')
-    bgm.play()
+    state.actions.bgm.play()
+    state.actions.bgm.loop
 }
 
 start()
