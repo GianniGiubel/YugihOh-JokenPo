@@ -15,6 +15,7 @@ const state = {
     } ,
     actions: {
         button: document.querySelector('#next-duel') ,
+        audio: document.querySelector('#bgm')
     } ,
 }
 
@@ -78,7 +79,7 @@ async function setCardsField(dataId) {
 
     state.fieldCards.playerCard.style.display = "block" 
     state.fieldCards.computerCard.style.display = "block" 
-
+    state.cardSprites.avatar.removeAttribute("src")    
     state.fieldCards.playerCard.src = cardData[dataId].img
     state.fieldCards.computerCard.src = cardData[computerCardId].img
 
@@ -143,12 +144,16 @@ async function drawCards(cardsNumber, fieldSide) {
 }
 
 async function resetDuel() {
-    state.cardSprites.avatar.src = ""
-    state.actions.button.innerHTML = "Vs"
-    state.fieldCards.playerCard.style.display = "none"
-    state.fieldCards.computerCard.style.display = "none"
+    if(state.fieldCards.playerCard.getAttribute("src")){        
+        state.cardSprites.name.innerHTML = "Card"
+        state.cardSprites.type.innerHTML = "Information"
+        state.fieldCards.playerCard.removeAttribute("src")        
+        state.fieldCards.playerCard.style.display = "none"             
+        state.fieldCards.computerCard.style.display = "none"             
+        state.actions.button.innerHTML = "Vs"  
 
-    start()
+        start()
+    }
 }
 
 async function playSound(status) {
@@ -159,6 +164,7 @@ async function playSound(status) {
 function start() {
     drawCards(5, playerSide.player1)
     drawCards(5, playerSide.computer)
+    state.actions.audio.play()
 }
 
 start()

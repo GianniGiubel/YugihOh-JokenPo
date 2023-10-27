@@ -1,3 +1,7 @@
+body {
+    cursor: url(../assets/cursor/yugicursor.png), default;
+}
+
 .bg-video {
     position: absolute;
     z-index: -2;
@@ -96,7 +100,10 @@
     padding: 10px;
 }
 
-.card-infield {    
+.card-infield {  
+    height: 180px;
+    width: 125px;
+    border: 1px solid white;  
     border-radius: 5px;
 }
 
@@ -120,4 +127,8 @@
 
 .card:hover {
     transform: scale(1.2);
+}
+
+button {
+    cursor: url(../assets/cursor/yugicursor.png), default;
 }

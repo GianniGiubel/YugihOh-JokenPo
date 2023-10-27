@@ -19,6 +19,9 @@
     <link rel="shortcut icon" href="src/assets/favicon/Favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <audio id="bgm" loop>
+        <source src="./src/assets/audios/egyptian_duel.mp3" type="audio/mp3">
+    </audio>
     <div class="bg-video">
         <video class="video" autoplay muted loop>
             <source src="src/assets/video/yugi.mp4" type="video/mp4">
@@ -44,13 +47,13 @@
                     <div class="versus-top">
 
                         <div class="card-infield">
-                            <img id="player-field-card" height="180px" width="125px">
+                            <img id="player-field-card" height="180px" width="125px" style="display: none;">
                         </div>
 
                         <img id="imgCentral" src="src/assets/icons/millenium2.png" alt="" height="100px">
                         
                         <div class="card-infield">
-                            <img id="computer-field-card" height="180px" width="125px">
+                            <img id="computer-field-card" height="180px" width="125px" style="display: none;">
                         </div>
 
                     </div>
